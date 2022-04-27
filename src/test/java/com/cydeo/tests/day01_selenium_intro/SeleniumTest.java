@@ -11,7 +11,9 @@ public class SeleniumTest {
         // 1- Setting up the web driver manager
         WebDriverManager.chromedriver().setup(); //  --> ilgili class'ı import et
 
+
         // 2- Create instance of the chrome driver obj.
+        // Open empty browser
         WebDriver driver=new ChromeDriver();
 
         // 3- Test if driver is working as expected
