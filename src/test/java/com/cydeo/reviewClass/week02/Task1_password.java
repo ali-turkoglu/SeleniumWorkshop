@@ -43,10 +43,23 @@ public class Task1_password {
             System.out.println("expectedEmail = " + expectedEmail);
         }
 
-        driver.findElement(By.id("form_submit")).click();
+        //driver.findElement(By.id("form_submit")).click();
 
+        // use css
+        driver.findElement(By.cssSelector("#form_submit")).click();
 
-        HandleWait.staticWait(3);
+        // using tagName locator
+        //driver.findElement(By.tagName("//button")).click();
+
+        HandleWait.staticWait(1);
+        String expectedMessage= "Your e-mail's been sent!";
+        String actualMessage=driver.findElement(By.name("confirmation_message")).getText();
+        if(expectedMessage.equals(actualMessage)){
+            System.out.println("PASSED message test!");
+        }else{
+            System.out.println("FAILED message test!");
+        }
+        HandleWait.staticWait(2);
         driver.close();
 
 
