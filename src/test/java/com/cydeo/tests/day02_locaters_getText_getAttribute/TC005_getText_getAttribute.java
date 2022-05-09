@@ -46,6 +46,8 @@ public class TC005_getText_getAttribute {
             System.out.println("FAIL!");
         }
 
+        driver.close();
+
     }
 
 
