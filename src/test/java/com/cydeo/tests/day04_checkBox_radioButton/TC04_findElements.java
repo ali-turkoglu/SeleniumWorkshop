@@ -30,13 +30,15 @@ public class TC04_findElements {
         System.out.println("allLinks.size() = " + allLinks.size());
 
         //5- Print out the texts of the links.
+        //6- Print out the HREF attribute values of the links
         for (WebElement each : allLinks) {
             System.out.println("Text of link: "+ each.getText());
+            System.out.println("Link: "+each.getAttribute("href")+"\n");
         }
 
-        //6- Print out the HREF attribute values of the links
+
+
 
         driver.close();
-
     }
 }
