@@ -11,16 +11,21 @@ public class TestNG_Intro {
         System.out.println("            Test 1 is running...");
 
         // Assert Equals: compare 2 of the same things
-
         String  actual="apple";
         String expected="apple";
         Assert.assertEquals(actual,expected);
+
 
     }
 
     @Test(priority = 2)
     public void test2(){
         System.out.println("            Test 2 is running...");
+
+        //Assert True
+        String  actual="apple";
+        String expected="apple";
+        Assert.assertTrue(actual.equals(expected));
     }
 
 
