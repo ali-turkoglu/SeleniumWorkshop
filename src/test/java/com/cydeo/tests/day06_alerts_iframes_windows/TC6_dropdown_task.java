@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC06_dropdown_task {
+public class TC6_dropdown_task {
 
     WebDriver driver;
 
