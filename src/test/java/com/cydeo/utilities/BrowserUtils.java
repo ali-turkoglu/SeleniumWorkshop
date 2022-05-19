@@ -17,6 +17,9 @@ public class BrowserUtils {
         }
     }
 
+
+    // This method will create a logic to switch to the tab/window where given is open
+    // accept 3 arguments 1- webdriver 2- expectedInUrl  3- expectedTitle to be compare against actual
     public static void switchWindowAndVerify(WebDriver driver,String expectedInUrl,String expectedTitle){
 
         Set<String > allWindowHandles=driver.getWindowHandles();
@@ -37,6 +40,7 @@ public class BrowserUtils {
         Assert.assertTrue(actualTitle.contains(expectedTitle));
 
     }
+
 
     // This method accepts a String "expectedTitle" and Asserts if it is true
     public static void verifyTitle(WebDriver driver,String expectedTitle){
