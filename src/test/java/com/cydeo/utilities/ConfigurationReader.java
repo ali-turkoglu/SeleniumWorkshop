@@ -6,16 +6,16 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
-    private static Properties properties= new Properties();
-
+    // 1-create an object from Properties class
+    private static Properties properties = new Properties();
 
     static {
 
         try {
-            // we need to open the file in java memory: FileInputStream
-            FileInputStream file=new FileInputStream("configuration.properties");
+            // 2-we need to open the file in java memory: FileInputStream
+            FileInputStream file = new FileInputStream("configuration.properties");
 
-            // Load the properties object using FileInputStream
+            // 3-Load the properties object using FileInputStream
             properties.load(file);
 
             // close the file
@@ -26,12 +26,12 @@ public class ConfigurationReader {
             e.printStackTrace();
         }
 
-
     }
 
+    public static String getProperty(String keyword) {
 
-
-
+        return properties.getProperty(keyword);
+    }
 
 
 }
