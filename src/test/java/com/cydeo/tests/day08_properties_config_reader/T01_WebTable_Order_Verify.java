@@ -1,6 +1,7 @@
 package com.cydeo.tests.day08_properties_config_reader;
 
 import com.cydeo.utilities.WebDriverFactory;
+import com.cydeo.utilities.WebTablesUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,6 +54,20 @@ public class T01_WebTable_Order_Verify {
         String accualOrderDate=driver.findElement(By.xpath("//table[@class='SampleTable']//tr//td[.='Bob Martin']/following-sibling::td[3]")).getText();
 
         Assert.assertEquals(expectedName,accualName);
+
+    }
+
+
+    @Test
+    public void test2(){
+
+        String actualOrderDate=WebTablesUtils.returnOrderDate(driver,"Samuel Jackson");
+
+        System.out.println(actualOrderDate);
+
+        String expectedOrderDate="12/21/2021";
+
+        WebTablesUtils.orderVerify(driver,"Samuel Jackson",expectedOrderDate);
 
     }
 
