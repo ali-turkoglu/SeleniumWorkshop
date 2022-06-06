@@ -1,8 +1,12 @@
 package com.cydeo.tests.day10_upload_actions_jsexecutor;
 
 import com.cydeo.utilities.ConfigurationReader;
+import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.WebDriverFactory;
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,41 +17,43 @@ import java.util.concurrent.TimeUnit;
 
 public class T1_Registration_Form {
 
-   public WebDriver driver;
-
-    @BeforeMethod
-    public void setupMethod(){
-        driver= WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+    public WebDriver driver;
 
 
     @Test
     public void window_handling_test() throws FileNotFoundException {
 
-        Properties properties=new Properties();
-        FileInputStream stream=new FileInputStream("configuration.properties");
 
-        driver.get(ConfigurationReader.getProperty("env"));
+        //TC#1: Registration form confirmation
+        //Note: Use JavaFaker OR read from configuration.properties file when possible.
+        //1. Open browser
+        //2. Go to website: https://practice.cydeo.com/registration_form
+        Driver.getDriver().get(ConfigurationReader.getProperty("registration.form.url"));
 
+        Faker faker = new Faker();
 
+        //3. Enter first name
+        WebElement firstNameInput = Driver.getDriver().findElement(By.xpath("//input[@name='firstname']"));
+        firstNameInput.sendKeys(faker.name().firstName());
 
+        //4. Enter last name
+        WebElement lastNameInput = Driver.getDriver().findElement(By.xpath("//input[@name='lastname']"));
+        lastNameInput.sendKeys(faker.name().lastName());
+
+        //5. Enter username
+        WebElement userNameInput = Driver.getDriver().findElement(By.xpath("//input[@name='username']"));
+        userNameInput.sendKeys(faker.name().username());
+
+        //6. Enter email address
+        WebElement emailInput = Driver.getDriver().findElement(By.xpath("//input[@name='email']"));
+        //emailInput.sendKeys(faker);
 
 
     }
 
-
-
 }
-//TC#1: Registration form confirmation
-//Note: Use JavaFaker OR read from configuration.properties file when possible.
-//1. Open browser
-//2. Go to website: https://practice.cydeo.com/registration_form
-//3. Enter first name
-//4. Enter last name
-//5. Enter username
-//6. Enter email address
+
+
 //7. Enter password
 //8. Enter phone number
 //9. Select a gender from radio buttons
