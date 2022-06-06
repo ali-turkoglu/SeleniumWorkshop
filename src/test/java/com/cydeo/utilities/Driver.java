@@ -29,7 +29,7 @@ public class Driver {
     /*
     Create a re-usable utility method which will return same driver instance when we call it
      */
-    public static WebDriver gerDriver() {
+    public static WebDriver getDriver() {
 
         if (driver == null) {
 
@@ -69,5 +69,15 @@ public class Driver {
         return driver;
 
     }
+
+
+    //driver.quit() --> nosuchsession
+    // driver.close() -->
+    //try to create a method closeDriver
+
+    public static void closeDriver(){
+        driver.close();
+    }
+
 
 }
