@@ -44,7 +44,7 @@ public class Driver {
                 Depending on the browserType that will be return from configuration.properties file
                 switch statement will determine the case, and open the matching browser
             */
-            switch (browserType){
+            switch (browserType) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -71,12 +71,12 @@ public class Driver {
     }
 
 
-    //driver.quit() --> nosuchsession
-    // driver.close() -->
-    //try to create a method closeDriver
-
-    public static void closeDriver(){
-        driver.close();
+    // This method will make sure our driver value is always null after using quit() method
+     public static void closeDriver() {
+        if (driver != null) {
+            driver.close(); // this line will terminate the existing session. value will not even be null
+            driver=null;
+        }
     }
 
 
