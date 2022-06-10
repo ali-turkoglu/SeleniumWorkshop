@@ -24,5 +24,13 @@ public class DynamicControls {
     @FindBy(css = "div#loading")
     public WebElement loadingBar;
 
+    @FindBy(xpath = "//button[.='Enable']")
+    public WebElement enableButton;
+
+    @FindBy(css = "input[type='text']")
+    public WebElement inputBox;
+
+
+
 
 }
